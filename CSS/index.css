@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Tarjeta principal mucho más grande y ancha para PC */
+.login-card {
+    background-color: #fcf6ec;
+    width: 92%;
+    max-width: 1070px; /* Aquí le aumentamos el ancho a lo grande */
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor superior más alto y amplio */
+.header-illustration {
+    background-color: #f4e3cd;
+    height: 320px; /* Más altura para que la ilustración luzca gigante */
+    border-bottom-left-radius: 50% 150px;
+    border-bottom-right-radius: 50% 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Ilustración adaptada al nuevo tamaño */
+.illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; 
+}
+
+/* Contenido interno con más espacio */
+.login-content {
+    padding: 50px 80px;
+    text-align: center;
+}
+
+.welcome-text {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Formulario con mejor proporción */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 25px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.login-form input::placeholder {
+    color: #8c8c8c;
+}
+
+/* Botón de Iniciar Sesión */
+.btn-submit {
+    background-color: #eb9e78;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #d98d67;
+}
+
+/* Enlaces de abajo */
+.login-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.login-links a {
+    color: #444444;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.login-links a:hover {
+    color: #eb9e78;
+    text-decoration: underline;
+}
