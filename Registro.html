@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - EL FARO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img class="header-image"
+            src="https://static.vecteezy.com/system/resources/thumbnails/023/094/462/small_2x/close-up-of-person-hand-put-seed-in-soil-farmer-plant-nut-in-ground-engaged-in-gardening-farming-and-agriculture-illustration-vector.jpg"
+            alt="Encabezado El Faro">
+
+        <div class="content">
+            <p class="description">
+                Te damos la bienvenida a EL FARO, tu refugio digital.<br>
+                Estás dando el primer paso hacia una comunidad de apoyo y bienestar emocional.<br>
+                Aquí, cada nueva conexión es una oportunidad de paz. Únete a nuestra comunidad y haz crecer tu
+                bienestar.
+            </p>
+
+            <h1 class="title">Regístrate</h1>
+
+            <form id="registroForm">
+
+    <div class="form-grid">
+
+        <input 
+            type="text" 
+            id="nombre"
+            class="input-field" 
+            placeholder="Nombre Completo" 
+            required
+        >
+
+        <input 
+            type="email" 
+            id="correo"
+            class="input-field" 
+            placeholder="Correo electrónico" 
+            required
+        >
+
+        <input 
+            type="password" 
+            id="password"
+            class="input-field" 
+            placeholder="Contraseña" 
+            required
+        >
+
+        <input 
+            type="password" 
+            id="confirmarPassword"
+            class="input-field" 
+            placeholder="Confirmar contraseña" 
+            required
+        >
+
+    </div>
+
+    <p id="mensaje"></p>
+
+    <button type="submit" class="btn-submit">
+        Crear cuenta
+    </button>
+
+</form>
+
+            <p class="footer-text">
+                Ya tienes una cuenta? <a href="#">Inicia sesión</a>
+            </p>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="JAVA/faro.JS"></script>
+</body>
+
+</html>
