@@ -26,12 +26,13 @@
 
             <h1 class="title">Regístrate</h1>
 
-            <form id="registroForm">
+            <form action="" method="post" id="registroForm">
 
     <div class="form-grid">
 
         <input 
             type="text" 
+            name="text"
             id="nombre"
             class="input-field" 
             placeholder="Nombre Completo" 
@@ -40,6 +41,7 @@
 
         <input 
             type="email" 
+            name="email"
             id="correo"
             class="input-field" 
             placeholder="Correo electrónico" 
@@ -48,6 +50,7 @@
 
         <input 
             type="password" 
+            name="password"
             id="password"
             class="input-field" 
             placeholder="Contraseña" 
@@ -56,6 +59,7 @@
 
         <input 
             type="password" 
+            name="password"
             id="confirmarPassword"
             class="input-field" 
             placeholder="Confirmar contraseña" 
@@ -66,7 +70,7 @@
 
     <p id="mensaje"></p>
 
-    <button type="submit" class="btn-submit">
+    <button type="submit" class="btn-submit" >
         Crear cuenta
     </button>
 
