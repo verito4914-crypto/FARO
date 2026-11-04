@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
+    background-color: #efd49e;
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
@@ -9,7 +9,19 @@ body {
     min-height: 100vh;
 }
 
-/* Contenedor principal con bordes redondeados y sombra elegante */
+/* LELA Quita el color azul y el subrayado de los enlaces */
+.link-meet {
+  color: inherit; /* LELA Hereda el color de texto del elemento padre */
+  text-decoration: none; /* LELA Elimina la línea subrayada */
+}
+
+/* ESTO Cambia el color al pasar el mouse por encima (opcional) */
+.link-meet:hover {
+  color: #fbf8f3; 
+}
+
+
+/* ESTE ES EL Contenedor principal con bordes redondeados y sombra elegante */
 .dashboard-container {
     width: 100%;
     max-width: 950px;
@@ -153,6 +165,9 @@ body {
     gap: 20px;
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
+    overflow: scroll;
+    height: 25em;
 }
 
 /* Tarjetas individuales (Cajones) */
@@ -165,9 +180,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 8px 20px rgba(212, 123, 83, 0.2);
     transition: transform 0.2s ease;
-}
+    box-shadow: 11px 8px 8px -3px #000000;
+    }
 
 .card:hover {
     transform: translateY(-4px);

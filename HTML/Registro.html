@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - EL FARO</title>
-    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 
 <body>
@@ -28,63 +28,39 @@
 
             <form action="" method="post" id="registroForm">
 
-    <div class="form-grid">
+                <div class="form-grid">
 
-        <input 
-            type="text" 
-            name="text"
-            id="nombre"
-            class="input-field" 
-            placeholder="Nombre Completo" 
-            required
-        >
+                    <input type="text" name="text" id="nombre" class="input-field" placeholder="Nombre Completo"
+                        required>
 
-        <input 
-            type="email" 
-            name="email"
-            id="correo"
-            class="input-field" 
-            placeholder="Correo electrónico" 
-            required
-        >
+                    <input type="email" name="email" id="correo" class="input-field" placeholder="Correo electrónico"
+                        required>
 
-        <input 
-            type="password" 
-            name="password"
-            id="password"
-            class="input-field" 
-            placeholder="Contraseña" 
-            required
-        >
+                    <input type="password" name="password" id="password" class="input-field" placeholder="Contraseña"
+                        required>
 
-        <input 
-            type="password" 
-            name="password"
-            id="confirmarPassword"
-            class="input-field" 
-            placeholder="Confirmar contraseña" 
-            required
-        >
+                    <input type="password" name="password" id="confirmarPassword" class="input-field"
+                        placeholder="Confirmar contraseña" required>
 
-    </div>
+                </div>
 
-    <p id="mensaje"></p>
+                <p id="mensaje"></p>
 
-    <button type="submit" class="btn-submit" >
-        Crear cuenta
-    </button>
+                <button type="submit" class="btn-submit">
+                    <a href="lobby.html">Crear cuenta </a>
+                </button> 
 
-</form>
+            </form>
 
             <p class="footer-text">
-                Ya tienes una cuenta? <a href="#">Inicia sesión</a>
+                Ya tienes una cuenta? <a href="index.html">Inicia sesión</a>
             </p>
         </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="JAVA/faro.JS"></script>
+    <script src="../JAVA/registro.js"></script>
 </body>
 
 </html>

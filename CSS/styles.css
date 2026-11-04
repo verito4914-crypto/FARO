@@ -27,7 +27,7 @@ body {
     max-height: 250px;
     object-fit: cover;
     object-position: center;
-    display: block;
+    
 }
 
 .content {
