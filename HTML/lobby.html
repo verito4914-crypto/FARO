@@ -16,7 +16,7 @@
         <header class="main-header">
             <h1 class="logo-title">EL FARO</h1>
             <div class="user-info">
-                <span>David Mauricio Arroyave</span>
+                <span id="nombreUsuario">Invitado</span>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgWLtgJhtdUsqqaYFD2wdwgMsDVnTAOGSMcUiYPEzxx6WeFmnwO5-HLl4&s=10"
                     alt="Avatar" class="user-avatar">
             </div>
@@ -29,11 +29,11 @@
             <aside class="sidebar">
                 <h2>Categorías</h2>
                 <ul class="category-list">
-                    <li><a href="https://meet.google.com/meet/eqf-wzzh-ivp" class="link-meet">Amor</a></li>
-                    <li><a href="https://meet.google.com/meet/eqf-wzzh-ivp" class="link-meet">Familia</a></li>
-                    <li><a href="https://meet.google.com/meet/eqf-wzzh-ivp" class="link-meet">Duelo</a></li>
-                    <li><a href="https://meet.google.com/meet/eqf-wzzh-ivp" class="link-meet">Academico</a></li>
-                   
+                    <li class="active"><a href="#" data-categoria="Todo">Todo</a></li>
+                    <li><a href="#" data-categoria="Amor">Amor</a></li>
+                    <li><a href="#" data-categoria="Familia">Familia</a></li>
+                    <li><a href="#" data-categoria="Duelo">Duelo</a></li>
+                    <li><a href="#" data-categoria="Academico">Académico</a></li>
                 </ul>
             </aside>
 
@@ -41,65 +41,123 @@
             <main class="content-area">
 
 
-                <button class="btn-create"> <a href="https://meet.google.com/home"> Crear Nueva + </a></button>
+                <button type="button" class="btn-create" id="btnAbrirFormulario">Crear Nueva +</button>
 
 
                 <div class="cards-grid">
 
-                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link">
+                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link" data-categoria="Amor">
                     <div class="card">
                         <div  class="card-inner"> 
                             <p><strong>Nombre:</strong> Yeison Amaya</p>
                             <p><strong>Hora:</strong> 4:30 pm - 7:00 pm</p>
                             <p><strong>Estado:</strong> Publica</p>
+                            <p><strong>Categoría:</strong> Amor</p>
                         </div>
                         <span class="card-theme">Tema: José Madero Viscaíno</span>
                     </div>
                     </a>
 
 
-                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link">
+                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link" data-categoria="Familia">
                     <div class="card">
                         <div class="card-inner">
                             <p><strong>Nombre:</strong> Pedro de Janeiro</p>
                             <p><strong>Hora:</strong> 4:30 pm - 7:00 pm</p>
                             <p><strong>Estado:</strong> Publica</p>
+                            <p><strong>Categoría:</strong> Familia</p>
                         </div>
                         <span class="card-theme">Tema: Adicciones</span>
                     </div>
                     </a>
 
 
-                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link">
+                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link" data-categoria="Academico">
                     <div class="card">
                         <div class="card-inner">
                             <p><strong>Nombre:</strong> Pepe Pedreros</p>
                             <p><strong>Hora:</strong> 5:00 pm - 7:00 pm</p>
                             <p><strong>Estado:</strong> Publica</p>
+                            <p><strong>Categoría:</strong> Académico</p>
                         </div>
                         <span class="card-theme">Tema: Academia </span>
                     </div>
                     </a>
 
 
-                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link">
+                    <a href="https://meet.google.com/eqf-wzzh-ivp" target="_blank" class="card-link" data-categoria="Academico">
                     <div class="card">
                         <div class="card-inner">
                             <p><strong>Nombre:</strong> Rogelio Alfonso Agustin Morado De La Cascada</p>
                             <p><strong>Hora:</strong> 2:00 pm - 7:00 pm</p>
                             <p><strong>Estado:</strong> Publica</p>
+                            <p><strong>Categoría:</strong> Académico</p>
                         </div>
                         <span class="card-theme">Tema: Primera Guerra Mundial </span>
                     </div>
                     </a>
 
-                    
                 </div>
+                <p class="sin-resultados" id="sinResultados" hidden>No hay salas en esta categoría todavía.</p>
             </main>
 
         </div>
     </div>
 
+    <!-- FORMULARIO PARA CREAR UNA NUEVA SALA -->
+    <div class="modal-overlay" id="modalCrear">
+        <div class="modal">
+            <button type="button" class="modal-cerrar" id="btnCerrarFormulario" aria-label="Cerrar">&times;</button>
+            <h2 class="modal-titulo">Crear nueva sala</h2>
+
+            <form id="formCrear" class="form-crear">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Tu nombre" required>
+
+                <label for="tema">Tema</label>
+                <input type="text" id="tema" placeholder="¿De qué se va a hablar?" required>
+
+                <label for="categoria">Categoría</label>
+                <select id="categoria" required>
+                    <option value="">Selecciona una categoría</option>
+                    <option value="Amor">Amor</option>
+                    <option value="Familia">Familia</option>
+                    <option value="Duelo">Duelo</option>
+                    <option value="Academico">Académico</option>
+                </select>
+
+                <div class="fila">
+                    <div>
+                        <label for="horaInicio">Hora inicio</label>
+                        <input type="time" id="horaInicio" required>
+                    </div>
+                    <div>
+                        <label for="horaFin">Hora fin</label>
+                        <input type="time" id="horaFin" required>
+                    </div>
+                </div>
+
+                <label for="estado">Estado</label>
+                <select id="estado">
+                    <option value="Publica">Pública</option>
+                    <option value="Privada">Privada</option>
+                </select>
+
+                <label for="link">Link de la reunión</label>
+                <div class="fila-link">
+                    <input type="url" id="link" placeholder="https://..." required>
+                    <button type="button" id="btnGenerarLink" class="btn-generar">Generar</button>
+                </div>
+                <small class="ayuda">Pulsa "Generar" para crear un link automático o pega tu propio link.</small>
+
+                <p class="error" id="mensajeError"></p>
+
+                <button type="submit" class="btn-create btn-guardar">Guardar sala</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../JAVA/lobby.js"></script>
 </body>
 
 </html>

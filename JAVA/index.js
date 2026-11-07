@@ -1,4 +1,6 @@
-function ValidarDatos() {
+function ValidarDatos(event) {
+    // Evita que el formulario se envíe antes de validar
+    if (event) event.preventDefault();
     
     var correo = document.getElementById("Correo electronico").value.trim();
     var contrasena = document.getElementById("Contraseña").value;
@@ -41,10 +43,27 @@ function ValidarDatos() {
 
     
     console.log("Contraseña y correo válidos");
+
+    // Busca el nombre del usuario registrado con ese correo
+    var nombre = correo.split("@")[0];
+    try {
+        var registrado = JSON.parse(localStorage.getItem("usuarioElFaro"));
+        if (registrado && registrado.correo && registrado.correo.toLowerCase() === correo.toLowerCase()) {
+            nombre = registrado.nombre;
+        }
+    } catch (e) { }
+
+    // Guarda la sesión para que el lobby sepa quién entró
+    localStorage.setItem("sesionElFaro", JSON.stringify({ nombre: nombre, correo: correo }));
+
     Swal.fire({
         icon: "success",
-        title: "¡Excelente!",
-        text: "Datos validados correctamente."
+        title: "¡Bienvenido, " + nombre + "!",
+        text: "Datos validados correctamente.",
+        timer: 1200,
+        showConfirmButton: false
+    }).then(function () {
+        window.location.href = "lobby.html";
     });
 }
 
