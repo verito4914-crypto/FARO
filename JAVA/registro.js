@@ -90,21 +90,52 @@ formulario.addEventListener("submit", function(event) {
         return;
     }
 
-    const usuario = {
-        nombre: nombreUsuario,
-        correo: correoUsuario
-    };
+    const datos = new FormData();
+    datos.append("nombre_completo", nombreUsuario);
+    datos.append("correo", correoUsuario);
+    datos.append("contrasena", contraseña);
 
-    localStorage.setItem("usuarioElFaro", JSON.stringify(usuario));
+    fetch("../php/usuario.php", { method: "POST", body: datos })
+        .then(function(respuesta) { return respuesta.text(); })
+        .then(function(texto) {
+            let resultado;
+            try {
+                resultado = JSON.parse(texto);
+            } catch (e) {
+                throw new Error(texto || "Respuesta vacía del servidor");
+            }
 
-    Swal.fire({
-        icon: "success",
-        title: "¡Bienvenido a El Faro!",
-        text: "Tu cuenta ha sido creada exitosamente.",
-        confirmButtonColor: "#eb9e78"
-    });
+            if (!resultado.ok) {
+                Swal.fire({
+                    icon: "error",
+                    title: "No se pudo registrar",
+                    text: resultado.mensaje,
+                    confirmButtonColor: "#eb9e78"
+                });
+                return;
+            }
 
-    setTimeout(function() {
-        formulario.reset();
-    }, 1000);
+            localStorage.setItem("usuarioElFaro", JSON.stringify({
+                id: resultado.id,
+                nombre: nombreUsuario,
+                correo: correoUsuario
+            }));
+
+            Swal.fire({
+                icon: "success",
+                title: "¡Bienvenido a El Faro!",
+                text: "Tu cuenta ha sido creada exitosamente.",
+                confirmButtonColor: "#eb9e78"
+            }).then(function() {
+                window.location.href = "lobby.html";
+            });
+        })
+        .catch(function(error) {
+            Swal.fire({
+                icon: "error",
+                title: "Error de conexión",
+                text: error.message,
+                confirmButtonColor: "#eb9e78"
+            });
+        });
 });
